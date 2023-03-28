@@ -1,6 +1,6 @@
 use std::fmt::Display;
 use fraction::BigFraction as Fraction; // TODO: BigFraction is pretty slow
-use std::ops::{Add, Sub};
+use std::ops::{Add, Sub, Mul};
 
 
 #[derive(Debug, Clone)]
@@ -40,5 +40,13 @@ impl Sub for ProbabilityAmplitude {
 
     fn sub(self, rhs: Self) -> Self::Output {
         return Self::new(&self.real - &rhs.real, &self.imag - &rhs.imag);
+    }
+}
+
+impl Mul for ProbabilityAmplitude {
+    type Output = Self;
+
+    fn mul(self, rhs: Self) -> Self::Output {
+        return Self::new(&self.real * &rhs.real - &self.imag * &rhs.imag, &self.real * &rhs.imag + &self.imag * &rhs.real);
     }
 }
