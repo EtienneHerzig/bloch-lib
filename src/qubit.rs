@@ -1,3 +1,5 @@
+use std::fmt::Display;
+
 use crate::amplitude::ProbabilityAmplitude;
 
 #[derive(Debug)]
@@ -15,5 +17,11 @@ impl Qubit {
 impl Default for Qubit {
     fn default() -> Self {
         return Self { alpha:ProbabilityAmplitude::default(), beta: ProbabilityAmplitude::new(1, 0) };
+    }
+}
+
+impl Display for Qubit {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        return write!(f, "|ψ〉= {}|0〉+ {}|1〉", self.alpha, self.beta);
     }
 }
