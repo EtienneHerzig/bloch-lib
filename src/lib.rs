@@ -2,6 +2,7 @@
 
 
 mod amplitude;
+mod qubit;
 
 
 #[cfg(test)]
