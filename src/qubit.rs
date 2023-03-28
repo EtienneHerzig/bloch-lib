@@ -22,6 +22,6 @@ impl Default for Qubit {
 
 impl Display for Qubit {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        return write!(f, "|ψ〉= {}|0〉+ {}|1〉", self.alpha, self.beta);
+        return write!(f, "|ψ〉= {:.2}|0〉+ {:.2}|1〉", self.alpha.normalize(), self.beta.normalize());
     }
 }

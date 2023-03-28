@@ -58,3 +58,9 @@ impl Div for ProbabilityAmplitude {
         return Self::new((&self.real * &rhs.real + &self.imag * &rhs.imag)/(&rhs.real * &rhs.real + &rhs.imag * &rhs.imag), (&self.imag * &rhs.real - &self.real * &rhs.imag)/(&rhs.real * &rhs.real + &rhs.imag * &rhs.imag))
     }
 }
+
+impl ProbabilityAmplitude {
+    pub fn normalize(&self) -> Self {
+        return self.clone() * self.clone();
+    }
+}
