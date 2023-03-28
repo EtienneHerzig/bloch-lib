@@ -11,3 +11,9 @@ impl Qubit {
         return Self { alpha: alpha, beta: beta };
     }
 }
+
+impl Default for Qubit {
+    fn default() -> Self {
+        return Self { alpha:ProbabilityAmplitude::default(), beta: ProbabilityAmplitude::new(1, 0) };
+    }
+}
