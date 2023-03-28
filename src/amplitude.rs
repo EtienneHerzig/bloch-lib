@@ -16,3 +16,9 @@ impl ProbabilityAmplitude {
         return Self { real: real.into(), imag: imag.into() };
     }
 }
+
+impl Default for ProbabilityAmplitude {
+    fn default() -> Self {
+        return Self { real: 0.into(), imag: 0.into() }
+    }
+}
