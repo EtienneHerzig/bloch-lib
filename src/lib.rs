@@ -3,6 +3,7 @@ mod amplitude;
 #[cfg(test)]
 mod tests {
     use super::amplitude::ProbabilityAmplitude;
+    use rand;
 
     #[test]
     fn default_fmt() {

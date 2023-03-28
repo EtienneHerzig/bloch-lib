@@ -1,19 +1,14 @@
 use std::fmt::Display;
-use fraction::DynaDecimal as Fraction;
-use fraction::{
-    GenericDecimal,
-    DynaInt,
-    BigUint
-};
+use fraction::BigFraction as Fraction; // TODO: BigFraction is pretty slow
 
 #[derive(Debug, Clone)]
 pub struct ProbabilityAmplitude {
-    real: Fraction<u16, u16>,
-    imag: Fraction<u16, u16>,
+    real: Fraction,
+    imag: Fraction,
 }
 
 impl ProbabilityAmplitude {
-    fn new<T: Into<GenericDecimal<DynaInt<u16, BigUint>, u16>>, U: Into<GenericDecimal<DynaInt<u16, BigUint>, u16>>> (real: T, imag: U) -> Self {
+    pub fn new<T: Into<Fraction>, U: Into<Fraction>> (real: T, imag: U) -> Self {
         return Self { real: real.into(), imag: imag.into() };
     }
 }
