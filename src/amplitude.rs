@@ -1,5 +1,7 @@
 use std::fmt::Display;
 use fraction::BigFraction as Fraction; // TODO: BigFraction is pretty slow
+use std::ops::{Add};
+
 
 #[derive(Debug, Clone)]
 pub struct ProbabilityAmplitude {
@@ -22,5 +24,13 @@ impl Default for ProbabilityAmplitude {
 impl Display for ProbabilityAmplitude {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "{:.2} + {:.2}i", self.real, self.imag)
+    }
+}
+
+impl Add for ProbabilityAmplitude {
+    type Output = Self;
+
+    fn add(self, rhs: Self) -> Self::Output {
+        return Self::new(self.real + rhs.real, self.imag + rhs.imag);
     }
 }
