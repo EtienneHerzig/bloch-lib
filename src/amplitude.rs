@@ -1,8 +1,18 @@
 use fraction::DynaDecimal as Fraction;
-
+use fraction::{
+    GenericDecimal,
+    DynaInt,
+    BigUint
+};
 
 #[derive(Debug, Clone)]
 pub struct ProbabilityAmplitude {
     real: Fraction<u16, u16>,
     imag: Fraction<u16, u16>,
+}
+
+impl ProbabilityAmplitude {
+    fn new<T: Into<GenericDecimal<DynaInt<u16, BigUint>, u16>>, U: Into<GenericDecimal<DynaInt<u16, BigUint>, u16>>> (real: T, imag: U) -> Self {
+        return Self { real: real.into(), imag: imag.into() };
+    }
 }
