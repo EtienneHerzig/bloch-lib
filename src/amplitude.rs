@@ -5,8 +5,8 @@ use std::ops::{Add, Sub, Mul, Div};
 
 #[derive(Debug, Clone)]
 pub struct ProbabilityAmplitude {
-    real: Fraction,
-    imag: Fraction,
+    pub real: Fraction,
+    pub imag: Fraction,
 }
 
 impl ProbabilityAmplitude {
