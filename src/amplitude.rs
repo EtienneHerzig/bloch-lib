@@ -21,6 +21,6 @@ impl Default for ProbabilityAmplitude {
 
 impl Display for ProbabilityAmplitude {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{} + {}i", self.real, self.imag)
+        write!(f, "{:.2} + {:.2}i", self.real, self.imag)
     }
 }
